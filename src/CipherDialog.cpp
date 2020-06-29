@@ -46,10 +46,8 @@ CipherDialog::CipherDialog(QWidget* parent, bool encrypt) :
     // Set the default encryption settings depending on the SQLCipher version we use
     QString sqlite_version, sqlcipher_version;
     DBBrowserDB::getSqliteVersion(sqlite_version, sqlcipher_version);
-    if(sqlcipher_version.startsWith('4'))
-        ui->radioEncryptionSqlCipher4->setChecked(true);
-    else
-        ui->radioEncryptionSqlCipher3->setChecked(true);
+    // Default check set the SQLCipher 3 version
+    ui->radioEncryptionSqlCipher3->setChecked(true);
 }
 
 CipherDialog::~CipherDialog()
